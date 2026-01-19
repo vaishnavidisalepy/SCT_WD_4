@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>✨ My Tasks ✨</h1>
+            <p class="subtitle">🚀 Organize your day, one task at a time 🚀</p>
+        </header>
+
+        <div class="input-section">
+            <div class="task-input-group">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="📝 Add a new task..." 
+                    class="task-input"
+                >
+                <select id="categoryInput" class="category-input">
+                    <option value="work">💼 Work</option>
+                    <option value="personal">👤 Personal</option>
+                    <option value="shopping">🛒 Shopping</option>
+                    <option value="health">💪 Health</option>
+                    <option value="other">📌 Other</option>
+                </select>
+                <select id="priorityInput" class="priority-input">
+                    <option value="low">🟢 Low</option>
+                    <option value="medium">🟡 Medium</option>
+                    <option value="high">🔴 High</option>
+                </select>
+                <input 
+                    type="datetime-local" 
+                    id="dateTimeInput" 
+                    class="datetime-input"
+                >
+                <button id="addBtn" class="add-btn">➕ Add Task</button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">🎯 All</button>
+            <button class="filter-btn" data-filter="pending">⏳ Pending</button>
+            <button class="filter-btn" data-filter="completed">✅ Completed</button>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat">
+                <span class="stat-label">📊 Total Tasks:</span>
+                <span class="stat-value" id="totalCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">🎉 Completed:</span>
+                <span class="stat-value" id="completedCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">⏱️ Pending:</span>
+                <span class="stat-value" id="pendingCount">0</span>
+            </div>
+        </div>
+
+        <div class="tasks-container">
+            <div id="tasksList" class="tasks-list">
+                <div class="empty-state">
+                    <p>No tasks yet. Add one to get started!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions-section">
+            <button id="clearCompletedBtn" class="clear-btn">🗑️ Clear Completed Tasks</button>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>✏️ Edit Task</h2>
+            <input 
+                type="text" 
+                id="editTaskInput" 
+                placeholder="Edit task..." 
+                class="modal-input"
+            >
+            <select id="editCategoryInput" class="modal-input">
+                <option value="work">💼 Work</option>
+                <option value="personal">👤 Personal</option>
+                <option value="shopping">🛒 Shopping</option>
+                <option value="health">💪 Health</option>
+                <option value="other">📌 Other</option>
+            </select>
+            <select id="editPriorityInput" class="modal-input">
+                <option value="low">🟢 Low</option>
+                <option value="medium">🟡 Medium</option>
+                <option value="high">🔴 High</option>
+            </select>
+            <input 
+                type="datetime-local" 
+                id="editDateTimeInput" 
+                class="modal-input"
+            >
+            <button id="saveEditBtn" class="modal-btn">💾 Save Changes</button>
+        </div>
+    </div>
+
+    <!-- Confetti container for celebrations -->
+    <div id="confetti"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
